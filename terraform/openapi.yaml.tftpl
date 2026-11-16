@@ -1,0 +1,50 @@
+swagger: "2.0"
+info:
+  title: territory-optimisation-api
+  version: "1.0.0"
+schemes: [https]
+produces: [application/json]
+x-google-backend:
+  address: ${backend_url}
+  jwt_audience: ${backend_url}
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: x-api-key
+    in: header
+security:
+  - api_key: []
+paths:
+  /healthz:
+    get:
+      operationId: health
+      responses:
+        "200": {description: OK}
+  /v1/runs:
+    post:
+      operationId: createRun
+      consumes: [application/json]
+      responses:
+        "202": {description: Accepted}
+  /v1/runs/latest:
+    get:
+      operationId: latestRuns
+      responses:
+        "200": {description: OK}
+  /v1/runs/{run_id}:
+    get:
+      operationId: getRun
+      parameters:
+        - name: run_id
+          in: path
+          required: true
+          type: string
+      responses:
+        "200": {description: OK}
+        "404": {description: Not found}
+  /v1/next-cycle:
+    post:
+      operationId: createNextCycle
+      consumes: [application/json]
+      responses:
+        "202": {description: Accepted}

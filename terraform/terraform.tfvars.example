@@ -1,0 +1,5 @@
+project_id        = "your-gcp-project"
+spreadsheet_id    = "your-google-spreadsheet-id"
+container_image   = "europe-west2-docker.pkg.dev/your-gcp-project/territory/territory-api@sha256:replace"
+scheduler_enabled = false
+alert_email       = "revops@example.com"

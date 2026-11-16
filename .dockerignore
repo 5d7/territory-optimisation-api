@@ -1,0 +1,8 @@
+.git
+.github
+.venv
+.terraform
+tests
+terraform
+apps-script
+*.tfstate*
